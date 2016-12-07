@@ -1,0 +1,6 @@
+# BAE
+log4j.rootLogger=INFO,BAE
+log4j.appender.BAE=com.baidu.bae.api.log.BaeLogAppender
+log4j.appender.BAE.ak=e52daa1c782340d29564a7d587f33e63
+log4j.appender.BAE.sk=3ad0a3f419b9459d8f5c1a07a0ab032c
+log4j.appender.BAE.layout=org.apache.log4j.SimpleLayout

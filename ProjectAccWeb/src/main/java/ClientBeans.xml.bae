@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jaxws="http://cxf.apache.org/jaxws"
+    xmlns:soap="http://cxf.apache.org/bindings/soap"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans 
+                        http://www.springframework.org/schema/beans/spring-beans.xsd
+                        http://cxf.apache.org/bindings/soap 
+                        http://cxf.apache.org/schemas/configuration/soap.xsd
+                        http://cxf.apache.org/jaxws 
+                        http://cxf.apache.org/schemas/jaxws.xsd">
+        <!-- 配置客户端bean -->
+        <!-- 
+            id:唯一标识
+            address：请求的服务地址
+            serviceClass：客户端接口
+         -->
+        <jaxws:client id="LoginService" address="http://localhost:8080/ProjectAccSvc/LoginService" serviceClass="com.cqx.acc.service.LoginService"></jaxws:client>
+        <jaxws:client id="DealCountsDailyService" address="http://localhost:8080/ProjectAccSvc/DealCountsDailyService" serviceClass="com.cqx.acc.service.DealCountsDailyService"></jaxws:client>
+         <jaxws:client id="JsonService" address="http://localhost:8080/ProjectAccSvc/JsonService" serviceClass="com.cqx.acc.service.JsonService"></jaxws:client>
+</beans>
