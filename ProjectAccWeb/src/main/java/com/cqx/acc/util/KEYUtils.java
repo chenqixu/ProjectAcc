@@ -6,7 +6,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.cqx.acc.service.client.LoginClient;
+import com.cqx.acc.service.client.SyncTimeClient;
 
 public class KEYUtils {
 	private static Map<String, String> keylist = new HashMap<String, String>();
@@ -46,8 +46,7 @@ public class KEYUtils {
 		if(Constants.isLocal){
 			sed = sdf1.format(new Date());
 		}else{
-			LoginClient lc = new LoginClient();
-			sed = lc.syncTime();
+			sed = SyncTimeClient.syncTime();
 		}
 		String id = keylist.get(name);
 		result = stringToMD5(sed.substring(0, sed.length()-1)+name+id);		

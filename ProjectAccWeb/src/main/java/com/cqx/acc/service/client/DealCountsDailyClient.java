@@ -71,8 +71,12 @@ public class DealCountsDailyClient {
 			response.setCharacterEncoding("GBK");
 			PrintWriter out = null;
 			out = response.getWriter();
+			// 内容
 			out.print(sbTables.toString());
+			// 分页
 			out.print(sbPages.toString());
+			// 取消遮罩层
+			out.print("parent.loadModal(\"hide\");");
 			out.flush();
 			out.close();
 		}catch(Exception e){

@@ -17,7 +17,7 @@ if(!StringUtils.isEmpty(beanStr)){
 	System.out.println("beanStr:"+beanStr);
 }
 if(StringUtils.isNotBlank(action)){
-	if(action.intern() == "query"){//增加
+	if(action.intern() == "query"){//查询
 		client.qryCountsDaily(dcdrbean, response);
 	}else if(action.intern() == "add"){//增加
 		client.insertCountsDaily(dcdrbean, response);

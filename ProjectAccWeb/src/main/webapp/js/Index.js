@@ -7,6 +7,8 @@ $(function(){
     $('#modal-container-type').modal('hide');
     $('#modal-container-my-card').modal({backdrop: 'static',keyboard: false});
     $('#modal-container-my-card').modal('hide');
+    // 进度条遮罩层初始化
+    $("#loadingModal").modal({backdrop:'static', keyboard:false});
     /***********界面新增*************/
 	// 绑定事件modal-add
 	$('#modal-add').on('click',function(){
@@ -178,6 +180,8 @@ $(function(){
 /***********界面清单*************/
 // 查询全部详单
 function queryAccList(startnum){
+	// 显示遮罩层
+	loadModal("show");
 	var v_startnum = (startnum-1)*listpagenum+1;
 	var baseBean = {};
 	baseBean.acc_use_time1=lastnowstr;
@@ -375,3 +379,8 @@ function changemodalmycard(type){
 	}
 }
 
+/***********进度条遮罩层*************/
+// 显示或隐藏 flag:show,hide
+function loadModal(flag){
+	$("#loadingModal").modal(flag);
+}
