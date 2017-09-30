@@ -13,6 +13,9 @@ import com.cqx.acc.service.JsonService;
 import com.cqx.acc.service.bean.AccTable;
 import com.cqx.acc.service.bean.dim.Acc_my_card;
 import com.cqx.acc.service.bean.json.JsonRequestObject;
+import com.cqx.acc.util.xml.CallWebService;
+import com.cqx.acc.util.xml.ResultXML;
+import com.cqx.acc.util.xml.XMLData;
 
 public class UtilTest {
 	public static void main(String[] args) throws Exception{
@@ -126,14 +129,16 @@ public class UtilTest {
 //		System.out.println(KEYUtils.stringToMD5("cry"));
 //		System.out.println(KEYUtils.stringToMD5("123456"));
 		
-		try {
-			Class.forName("com.mysql.jdbc.Driver");
-		    System.out.println(DriverManager.getConnection(
-		    		"jdbc:mysql://sqld.duapp.com:4050/waeSrvunFllmFRkiGfgY",
-		    		"e52daa1c782340d29564a7d587f33e63", "3ad0a3f419b9459d8f5c1a07a0ab032c"));
-		} catch (Exception e) {
-			CommonUtils.error(e.getMessage());
-		}
+//		try {
+//			Class.forName("com.mysql.jdbc.Driver");
+//		    System.out.println(DriverManager.getConnection(
+//		    		"jdbc:mysql://sqld.duapp.com:4050/waeSrvunFllmFRkiGfgY",
+//		    		"e52daa1c782340d29564a7d587f33e63", "3ad0a3f419b9459d8f5c1a07a0ab032c"));
+//		} catch (Exception e) {
+//			CommonUtils.error(e.getMessage());
+//		}
+		
+		loginTest("cqx", "cqx", "61832587718812523095");
 	}
 	
 	public static void TestClass(Object obj) throws Exception{
@@ -157,7 +162,7 @@ public class UtilTest {
 		}
 	}
 	
-	public static void TestClass(Class c) throws Exception{
+	public static void TestClass(Class c) throws Exception {
 		Object obj = c.newInstance();
 		Field fields[] = c.getDeclaredFields();
 		Field.setAccessible(fields, true);
@@ -168,5 +173,54 @@ public class UtilTest {
 			Method methodget = c.getDeclaredMethod("get"+fields[i].getName().toUpperCase(), null);
 			System.out.println(methodget.invoke(obj, null));
 		}		
+	}
+	
+	/**
+	 * 登陆测试
+	 * */
+	public static void loginTest(String username, String password, String id) throws Exception {
+		String soap = "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:ser=\"http://service.acc.cqx.com/\"><soapenv:Header/><soapenv:Body><ser:LoginCheck><message><header>"
+    			+"<requestname>"+username+"</requestname>"
+    			+"<key>"+KEYUtils.getKEYByNameAndId(username, id)+"</key>"
+    			+"<requesttime></requesttime><requestip></requestip></header><request>"
+    			+"<username>"+username+"</username>"
+    			// 对密码进行md5加密
+    			+"<password>"+KEYUtils.stringToMD5(password)+"</password>"
+    			+"</request></message></ser:LoginCheck></soapenv:Body></soapenv:Envelope>";
+		byte[] data = soap.getBytes();
+    	String sUrl = "http://localhost:8080/ProjectAccSvc/LoginService";
+    	CallWebService cws = new CallWebService();
+    	String resultxml = cws.doAction(sUrl, data);
+        if (resultxml.length()>0) {
+            // 解析返回信息
+        	ResultXML rx = new ResultXML();
+    		StringBuffer xml = new StringBuffer();
+    		xml.append("<?xml version=\"1.0\"  encoding='UTF-8'?>");
+    		xml.append(resultxml);
+    		XMLData xd = new XMLData(xml.toString());
+    		rx.rtFlag = true;
+    		rx.bXmldata = true;
+    		rx.xmldata = xd;
+    		rx.setbFlag(false);
+    		// 先看状态，再看返回值
+    		rx.resetParent().node("Body").node("LoginCheckResponse").node("message").node("header").setParentPointer();
+    		rx.setRowFlagInfo("status");
+    		rx.First();
+    		 if (rx.isEof()) { // 没有结果
+             	System.out.println("status没有结果");
+    		 } else {
+             	String status = rx.getRowValue();
+             	System.out.println("[status]"+status);
+    		 }
+    		rx.resetParent().node("Body").node("LoginCheckResponse").node("message").setParentPointer();
+    		rx.setRowFlagInfo("response");
+    		rx.First();
+            if (rx.isEof()) { // 没有结果
+            	System.out.println("response没有结果");
+            } else { // 有结果
+            	String logincode = rx.getRowValue();
+            	System.out.println("[logincode]"+logincode);
+            }
+        }
 	}
 }

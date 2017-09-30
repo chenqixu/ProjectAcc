@@ -17,7 +17,7 @@ public class Constants {
 	public static final boolean ISINFO = false;
 	public static final boolean ISDEBUG = false;
 	public static final boolean ISERR = true;
-	public static final boolean IS_PERMIT = true; // 是否鉴权，开发时候用false
+	public static final boolean IS_PERMIT = false; // 是否鉴权，开发时候用false
 	public static final String DECODE = "UTF-8";
 	
 	public static String spltstr = File.separator;//文件路径分隔符(区分windows和linux)
