@@ -232,12 +232,12 @@
 			</exclusions>
 		</dependency>
 
-		<!-- bae-log -->
+		<!-- bae-log
 		<dependency>
 	        <groupId>com.baidu.bae</groupId>
 	        <artifactId>baev3-sdk</artifactId>
 	        <version>1.0.1</version>
-	    </dependency>
+	    </dependency> -->
 	    
 	    <!-- servlet api -->	    
 		<dependency>

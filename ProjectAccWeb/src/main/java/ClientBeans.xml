@@ -14,7 +14,7 @@
             address：请求的服务地址
             serviceClass：客户端接口
          -->
-        <jaxws:client id="LoginService" address="http://accfamily.duapp.com/ProjectAccSvc/LoginService" serviceClass="com.cqx.acc.service.LoginService"></jaxws:client>
-        <jaxws:client id="DealCountsDailyService" address="http://accfamily.duapp.com/ProjectAccSvc/DealCountsDailyService" serviceClass="com.cqx.acc.service.DealCountsDailyService"></jaxws:client>
-         <jaxws:client id="JsonService" address="http://accfamily.duapp.com/ProjectAccSvc/JsonService" serviceClass="com.cqx.acc.service.JsonService"></jaxws:client>
+        <jaxws:client id="LoginService" address="http://132.232.177.48:8080/ProjectAccSvc/LoginService" serviceClass="com.cqx.acc.service.LoginService"></jaxws:client>
+        <jaxws:client id="DealCountsDailyService" address="http://132.232.177.48:8080/ProjectAccSvc/DealCountsDailyService" serviceClass="com.cqx.acc.service.DealCountsDailyService"></jaxws:client>
+         <jaxws:client id="JsonService" address="http://132.232.177.48:8080/ProjectAccSvc/JsonService" serviceClass="com.cqx.acc.service.JsonService"></jaxws:client>
 </beans>
