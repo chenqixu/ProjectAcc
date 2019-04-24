@@ -25,11 +25,11 @@ public class DealCountsDailyServiceImpl implements DealCountsDailyService {
 			DealCountsDailyRequestObject requestObj) {
 		DealCountsDailyRequestBean requestbean = (DealCountsDailyRequestBean)requestObj.getBody();
 		DealCountsDailyResponseObject responseObj = new DealCountsDailyResponseObject();
-		// ×Ô¶¯ÉèÖÃ±¨ÎÄÍ·
+		// è‡ªåŠ¨è®¾ç½®æŠ¥æ–‡å¤´
 		MessageHelper.autoSetRespHeader(responseObj);
-		// ¼øÈ¨
+		// é‰´æƒ
 		if(!MessageHelper.authority(requestObj.getHeader())){
-			// ×Ô¶¯ÉèÖÃ¼øÈ¨Ê§°Ü·µ»Ø½á¹û
+			// è‡ªåŠ¨è®¾ç½®é‰´æƒå¤±è´¥è¿”å›ç»“æœ
 			MessageHelper.autoSetAuthResult(responseObj);
 			return responseObj;
 		}
@@ -37,7 +37,7 @@ public class DealCountsDailyServiceImpl implements DealCountsDailyService {
 		sql.append("select seq_id,acc_time,acc_type,acc_value,t1.acc_sts,acc_desc,"+
 				"t1.acc_use_type,acc_card,acc_use_time,t1.user_name ");
 		sql.append(",t2.acc_card_name,t3.acc_use_name ");
-		sql.append(",case when acc_type=0 then 'Æ½ºâ' when acc_type=1 then 'ÊÕÈë' when acc_type=2 then 'Ö§³ö' when acc_type=3 then 'Í¸Ö§' end as acc_type_desc ");
+		sql.append(",case when acc_type=0 then 'å¹³è¡¡' when acc_type=1 then 'æ”¶å…¥' when acc_type=2 then 'æ”¯å‡º' when acc_type=3 then 'é€æ”¯' end as acc_type_desc ");
 		sql.append(" from acc_counts_daily t1 ");
 		sql.append(" left join acc_my_card t2 on t1.acc_card=t2.acc_my_card and t2.acc_sts=1 and t2.user_name=t1.user_name ");
 		sql.append(" left join acc_use_type t3 on t1.acc_use_type=t3.acc_use_type and t3.acc_sts=1 and t3.user_name=t1.user_name ");
@@ -88,20 +88,20 @@ public class DealCountsDailyServiceImpl implements DealCountsDailyService {
 		DealCountsDailyRequestBean requestbean = (DealCountsDailyRequestBean)requestObj.getBody();
 		AccBooleanResponseObject responseObj = new AccBooleanResponseObject();
 		try{
-			// ÅĞ¶ÏÊÇ²»ÊÇUTF-8±àÂë
+			// åˆ¤æ–­æ˜¯ä¸æ˜¯UTF-8ç¼–ç 
 			if (requestbean.getAcc_desc().equals(
 					new String(requestbean.getAcc_desc().getBytes(Constants.DECODE), Constants.DECODE))) {
-				// ×ªÂë£¬app»áÂÒÂë±ØĞë×ª
+				// è½¬ç ï¼Œappä¼šä¹±ç å¿…é¡»è½¬
 				requestbean.setAcc_desc(CommonUtils.decode(requestbean.getAcc_desc()));
 			}
 		}catch(Exception e){
 			CommonUtils.error(e.getMessage());
 		}
-		// ×Ô¶¯ÉèÖÃ±¨ÎÄÍ·
+		// è‡ªåŠ¨è®¾ç½®æŠ¥æ–‡å¤´
 		MessageHelper.autoSetRespHeader(responseObj);
-		// ¼øÈ¨
+		// é‰´æƒ
 		if(!MessageHelper.authority(requestObj.getHeader())){
-			// ×Ô¶¯ÉèÖÃ¼øÈ¨Ê§°Ü·µ»Ø½á¹û
+			// è‡ªåŠ¨è®¾ç½®é‰´æƒå¤±è´¥è¿”å›ç»“æœ
 			MessageHelper.autoSetAuthResult(responseObj);
 			return responseObj;
 		}
@@ -122,11 +122,11 @@ public class DealCountsDailyServiceImpl implements DealCountsDailyService {
 			DealCountsDailyRequestObject requestObj) {
 		DealCountsDailyRequestBean requestbean = (DealCountsDailyRequestBean)requestObj.getBody();
 		AccBooleanResponseObject responseObj = new AccBooleanResponseObject();
-		// ×Ô¶¯ÉèÖÃ±¨ÎÄÍ·
+		// è‡ªåŠ¨è®¾ç½®æŠ¥æ–‡å¤´
 		MessageHelper.autoSetRespHeader(responseObj);
-		// ¼øÈ¨
+		// é‰´æƒ
 		if(!MessageHelper.authority(requestObj.getHeader())){
-			// ×Ô¶¯ÉèÖÃ¼øÈ¨Ê§°Ü·µ»Ø½á¹û
+			// è‡ªåŠ¨è®¾ç½®é‰´æƒå¤±è´¥è¿”å›ç»“æœ
 			MessageHelper.autoSetAuthResult(responseObj);
 			return responseObj;
 		}
@@ -150,7 +150,7 @@ public class DealCountsDailyServiceImpl implements DealCountsDailyService {
 		if(AccStringUtils.IsNotEmpty(requestbean.getAcc_desc())){
 			sql.append(" acc_desc = ?,");
 		}
-		// É¾µô×îºóÒ»¸ö¶ººÅ
+		// åˆ æ‰æœ€åä¸€ä¸ªé€—å·
 		sql.deleteCharAt(sql.length()-1);
 		sql.append(" where seq_id = ? ");
 		CommonUtils.info("[sql]"+sql.toString());
@@ -165,11 +165,11 @@ public class DealCountsDailyServiceImpl implements DealCountsDailyService {
 			DealCountsDailyRequestObject requestObj) {
 		DealCountsDailyRequestBean requestbean = (DealCountsDailyRequestBean)requestObj.getBody();
 		AccBooleanResponseObject responseObj = new AccBooleanResponseObject();
-		// ×Ô¶¯ÉèÖÃ±¨ÎÄÍ·
+		// è‡ªåŠ¨è®¾ç½®æŠ¥æ–‡å¤´
 		MessageHelper.autoSetRespHeader(responseObj);
-		// ¼øÈ¨
+		// é‰´æƒ
 		if(!MessageHelper.authority(requestObj.getHeader())){
-			// ×Ô¶¯ÉèÖÃ¼øÈ¨Ê§°Ü·µ»Ø½á¹û
+			// è‡ªåŠ¨è®¾ç½®é‰´æƒå¤±è´¥è¿”å›ç»“æœ
 			MessageHelper.autoSetAuthResult(responseObj);
 			return responseObj;
 		}
@@ -187,11 +187,11 @@ public class DealCountsDailyServiceImpl implements DealCountsDailyService {
 			DealCountsDailyRequestObject requestObj) {
 		DealCountsDailyRequestBean requestbean = (DealCountsDailyRequestBean)requestObj.getBody();
 		AccBooleanResponseObject responseObj = new AccBooleanResponseObject();
-		// ×Ô¶¯ÉèÖÃ±¨ÎÄÍ·
+		// è‡ªåŠ¨è®¾ç½®æŠ¥æ–‡å¤´
 		MessageHelper.autoSetRespHeader(responseObj);
-		// ¼øÈ¨
+		// é‰´æƒ
 		if(!MessageHelper.authority(requestObj.getHeader())){
-			// ×Ô¶¯ÉèÖÃ¼øÈ¨Ê§°Ü·µ»Ø½á¹û
+			// è‡ªåŠ¨è®¾ç½®é‰´æƒå¤±è´¥è¿”å›ç»“æœ
 			MessageHelper.autoSetAuthResult(responseObj);
 			return responseObj;
 		}
@@ -209,11 +209,11 @@ public class DealCountsDailyServiceImpl implements DealCountsDailyService {
 			DealCountsDailyRequestObject requestObj) {
 		DealCountsDailyRequestBean requestbean = (DealCountsDailyRequestBean)requestObj.getBody();
 		AccBooleanResponseObject responseObj = new AccBooleanResponseObject();
-		// ×Ô¶¯ÉèÖÃ±¨ÎÄÍ·
+		// è‡ªåŠ¨è®¾ç½®æŠ¥æ–‡å¤´
 		MessageHelper.autoSetRespHeader(responseObj);
-		// ¼øÈ¨
+		// é‰´æƒ
 		if(!MessageHelper.authority(requestObj.getHeader())){
-			// ×Ô¶¯ÉèÖÃ¼øÈ¨Ê§°Ü·µ»Ø½á¹û
+			// è‡ªåŠ¨è®¾ç½®é‰´æƒå¤±è´¥è¿”å›ç»“æœ
 			MessageHelper.autoSetAuthResult(responseObj);
 			return responseObj;
 		}

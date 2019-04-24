@@ -13,9 +13,9 @@ import com.cqx.acc.util.CommonUtils;
 
 /**
  * @ClassName ResultXML
- * @Description XML½á¹û,ÒýÓÃBOSS¿ò¼Ü
- * @author ³ÂÆåÐñ
- * @version 1.0 2015-10-17 ´´½¨
+ * @Description XMLç»“æžœ,å¼•ç”¨BOSSæ¡†æž¶
+ * @author é™ˆæ£‹æ—­
+ * @version 1.0 2015-10-17 åˆ›å»º
  * */
 public class ResultXML {
     public Document nlxDoc;

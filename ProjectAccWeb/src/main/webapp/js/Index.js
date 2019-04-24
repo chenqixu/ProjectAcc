@@ -208,11 +208,14 @@ function listmodify(thisObj) {
 	modaladdclear();
 	$('#add_newbtn').html("修改");
 	var $td = $(thisObj).parents('tr').children('td');
-	$("#acc_select option[value='"+$td.eq(6).text()+"']").attr("selected", true);
+	// $("#acc_select option[value='"+$td.eq(6).text()+"']").attr("selected", true);
+    $("#acc_select").val($td.eq(6).text());
 	$("#accvalue").val(""+$td.eq(1).text()+"");
 	$("#accdesc").val(""+$td.eq(2).text()+"");
-	$("#acc_use_type_select option[value='"+$td.eq(7).text()+"']").attr("selected", true);
-	$("#acc_my_card_select option[value='"+$td.eq(8).text()+"']").attr("selected", true);
+	// $("#acc_use_type_select option[value='"+$td.eq(7).text()+"']").attr("selected", true);
+    $("#acc_use_type_select").val($td.eq(7).text());
+	// $("#acc_my_card_select option[value='"+$td.eq(8).text()+"']").attr("selected", true);
+    $("#acc_my_card_select").val($td.eq(8).text());
 	$("#acctime").val(""+$td.eq(5).text()+"");
 	$("#accseqid").val(""+$td.eq(9).text()+"");
 }

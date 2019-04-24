@@ -8,12 +8,12 @@ import java.util.Map;
 import com.cqx.acc.service.bean.Acc_user;
 
 /**
- * ÓÃ»§»º´æÁĞ±í
+ * ç”¨æˆ·ç¼“å­˜åˆ—è¡¨
  * */
 public class UserListCache {
 	public static Map<String, String> keylist = new HashMap<String, String>();
 	/**
-	 * ³õÊ¼»¯ÓÃ»§»º´æÁĞ±í
+	 * åˆå§‹åŒ–ç”¨æˆ·ç¼“å­˜åˆ—è¡¨
 	 * */
 	public static void init(){
 		String sql = "select username,password,keyid from acc_user ";

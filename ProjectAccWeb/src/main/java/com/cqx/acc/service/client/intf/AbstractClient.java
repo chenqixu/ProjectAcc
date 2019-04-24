@@ -3,15 +3,15 @@ package com.cqx.acc.service.client.intf;
 import com.cqx.acc.service.bean.intf.AccResponseIntf;
 
 public abstract class AbstractClient {
-	// Ö´ĞĞ¼ÆÊıÆ÷
+	// æ‰§è¡Œè®¡æ•°å™¨
 	public int exec_cnt = 0;
 	/**
-	 * ÕæÕıµ÷ÓÃ·şÎñ
+	 * çœŸæ­£è°ƒç”¨æœåŠ¡
 	 * */
 	protected abstract AccResponseIntf callService(Object requestBean);
 	
 	/**
-	 * µ÷ÓÃcallService£¬´¦ÀíÒµÎñÂß¼­£¬°üÀ¨Ê§°ÜÖØµ÷
+	 * è°ƒç”¨callServiceï¼Œå¤„ç†ä¸šåŠ¡é€»è¾‘ï¼ŒåŒ…æ‹¬å¤±è´¥é‡è°ƒ
 	 * */
 	public abstract int exec(Object requestBean);
 }

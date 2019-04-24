@@ -31,7 +31,7 @@ public class DimClient {
 		at.setTablecolum("acc_my_card,acc_card_name,acc_card_desc");
 		at.setRequestObjbean(requestBean);
 		requestJson.setBody(JSONObject.fromObject(at).toString());
-		// ×Ô¶¯ÉèÖÃ±¨ÎÄÍ·
+		// è‡ªåŠ¨è®¾ç½®æŠ¥æ–‡å¤´
 		MessageHelper.autoSetRequestHeader(requestJson, requestBean.getUser_name());
 		JsonResponseObject responseJS = service.qry(requestJson);
 		List<String> list = (List<String>)responseJS.getBody();
@@ -40,15 +40,15 @@ public class DimClient {
 			while(it.hasNext()){
 				resultList.add(new Acc_my_card().jsonToBean(it.next()));
 			}
-			//Æ´×°Table
+			//æ‹¼è£…Table
 			StringBuffer sbTables = new StringBuffer("");
 			sbTables.append("$('#modal_mycard_table').html(\"");
 			sbTables.append("<table class='table' id='modal_mycard_table'>");
 			sbTables.append("<thead>");
 			sbTables.append("<tr>");
-			sbTables.append("<th>Ãû³Æ</th>");
-			sbTables.append("<th>ËµÃ÷</th>");
-			sbTables.append("<th>²Ù×÷</th>");
+			sbTables.append("<th>åç§°</th>");
+			sbTables.append("<th>è¯´æ˜</th>");
+			sbTables.append("<th>æ“ä½œ</th>");
 			sbTables.append("</tr>");
 			sbTables.append("</thead>");
 			sbTables.append("<tbody>");
@@ -58,25 +58,25 @@ public class DimClient {
 					sbTables.append("<td>"+bean.getAcc_card_name()+"</td>");
 					sbTables.append("<td>"+bean.getAcc_card_desc()+"</td>");
 					sbTables.append("<td style='display:none'>"+bean.getAcc_my_card()+"</td>");
-					sbTables.append("<td><button class='btn btn-small btn-primary' onclick='modalmycardmodify(this);'>±à¼­</button>");
-					sbTables.append("&nbsp;<button class='btn btn-small btn-primary' onclick='modalmycarddel(this);'>É¾³ı</button></td>");
+					sbTables.append("<td><button class='btn btn-small btn-primary' onclick='modalmycardmodify(this);'>ç¼–è¾‘</button>");
+					sbTables.append("&nbsp;<button class='btn btn-small btn-primary' onclick='modalmycarddel(this);'>åˆ é™¤</button></td>");
 					sbTables.append("</tr>");	
 				}
 			}
 			sbTables.append("</tbody>");
 			sbTables.append("</table>");
 			sbTables.append("\");");
-			//·ÖÒ³
+			//åˆ†é¡µ
 			StringBuffer sbPages = new StringBuffer(); 
 			sbPages.append("pmycardlist.init("+requestBean.getStartnum()+","+requestBean.getPagenum()
 					+","+responseJS.getHeader().getTotalcount()+",\"queryMyCard\");");
-			//Select£¬ÏÂÀ­¿ò±ØĞëÈ«²¿²éÑ¯
+			//Selectï¼Œä¸‹æ‹‰æ¡†å¿…é¡»å…¨éƒ¨æŸ¥è¯¢
 			List<Acc_my_card> resultSelectList = new ArrayList<Acc_my_card>();
 			requestBean.setStartnum("1");
 			requestBean.setPagenum("1000");
 			at.setRequestObjbean(requestBean);
 			requestJson.setBody(JSONObject.fromObject(at).toString());
-			// ×Ô¶¯ÉèÖÃ±¨ÎÄÍ·
+			// è‡ªåŠ¨è®¾ç½®æŠ¥æ–‡å¤´
 			MessageHelper.autoSetRequestHeader(requestJson, requestBean.getUser_name());
 			JsonResponseObject responseSelectJS = service.qry(requestJson);
 			List<String> selectlist = (List<String>)responseSelectJS.getBody();
@@ -86,13 +86,13 @@ public class DimClient {
 					resultSelectList.add(new Acc_my_card().jsonToBean(selectit.next()));
 				}
 			}			
-			//Æ´×°select
+			//æ‹¼è£…select
 			StringBuffer sbSelects = new StringBuffer("");
 			sbSelects.append("$('#acc_my_card_select').html(\"");
 			sbSelects.append("<select id='acc_my_card_select' class='form-control'>");
 			if(resultSelectList.size()>0){
 				for(Acc_my_card mycard : resultSelectList){
-					sbSelects.append("<option selected value='"+mycard.getAcc_my_card()+"'>"+mycard.getAcc_card_name()+"</option>");
+					sbSelects.append("<option value='"+mycard.getAcc_my_card()+"'>"+mycard.getAcc_card_name()+"</option>");
 				}
 			}
 			sbSelects.append("</select>");
@@ -127,7 +127,7 @@ public class DimClient {
 		at.setTablecolum("acc_use_type,acc_use_name,acc_use_desc");
 		at.setRequestObjbean(requestBean);
 		requestJson.setBody(JSONObject.fromObject(at).toString());
-		// ×Ô¶¯ÉèÖÃ±¨ÎÄÍ·
+		// è‡ªåŠ¨è®¾ç½®æŠ¥æ–‡å¤´
 		MessageHelper.autoSetRequestHeader(requestJson, requestBean.getUser_name());
 		JsonResponseObject responseJson = service.qry(requestJson);
 		List<String> list = (List<String>)responseJson.getBody();
@@ -136,15 +136,15 @@ public class DimClient {
 			while(it.hasNext()){
 				resultList.add(new Acc_use_type().jsonToBean(it.next()));
 			}
-			//Æ´×°Table
+			//æ‹¼è£…Table
 			StringBuffer sbTables = new StringBuffer("");
 			sbTables.append("$('#modal_type_table').html(\"");
 			sbTables.append("<table class='table' id='modal_type_table'>");
 			sbTables.append("<thead>");
 			sbTables.append("<tr>");
-			sbTables.append("<th>Ãû³Æ</th>");
-			sbTables.append("<th>ËµÃ÷</th>");
-			sbTables.append("<th>²Ù×÷</th>");
+			sbTables.append("<th>åç§°</th>");
+			sbTables.append("<th>è¯´æ˜</th>");
+			sbTables.append("<th>æ“ä½œ</th>");
 			sbTables.append("</tr>");
 			sbTables.append("</thead>");
 			sbTables.append("<tbody>");
@@ -154,25 +154,25 @@ public class DimClient {
 					sbTables.append("<td>"+bean.getAcc_use_name()+"</td>");
 					sbTables.append("<td>"+bean.getAcc_use_desc()+"</td>");
 					sbTables.append("<td style='display:none'>"+bean.getAcc_use_type()+"</td>");
-					sbTables.append("<td><button class='btn btn-small btn-primary' onclick='modaltypemodify(this);'>±à¼­</button>");
-					sbTables.append("&nbsp;<button class='btn btn-small btn-primary' onclick='modaltypedel(this);'>É¾³ı</button></td>");
+					sbTables.append("<td><button class='btn btn-small btn-primary' onclick='modaltypemodify(this);'>ç¼–è¾‘</button>");
+					sbTables.append("&nbsp;<button class='btn btn-small btn-primary' onclick='modaltypedel(this);'>åˆ é™¤</button></td>");
 					sbTables.append("</tr>");	
 				}
 			}
 			sbTables.append("</tbody>");
 			sbTables.append("</table>");
 			sbTables.append("\");");
-			//·ÖÒ³
+			//åˆ†é¡µ
 			StringBuffer sbPages = new StringBuffer(); 
 			sbPages.append("ptypelist.init("+requestBean.getStartnum()+","+requestBean.getPagenum()
 					+","+responseJson.getHeader().getTotalcount()+",\"queryUseType\");");
-			//Select£¬ÏÂÀ­¿ò±ØĞëÈ«²¿²éÑ¯
+			//Selectï¼Œä¸‹æ‹‰æ¡†å¿…é¡»å…¨éƒ¨æŸ¥è¯¢
 			List<Acc_use_type> resultSelectList = new ArrayList<Acc_use_type>();
 			requestBean.setStartnum("1");
 			requestBean.setPagenum("1000");
 			at.setRequestObjbean(requestBean);
 			requestJson.setBody(JSONObject.fromObject(at).toString());
-			// ×Ô¶¯ÉèÖÃ±¨ÎÄÍ·
+			// è‡ªåŠ¨è®¾ç½®æŠ¥æ–‡å¤´
 			MessageHelper.autoSetRequestHeader(requestJson, requestBean.getUser_name());
 			JsonResponseObject responseSelectJson = service.qry(requestJson);
 			List<String> selectlist = (List<String>)responseSelectJson.getBody();
@@ -182,13 +182,13 @@ public class DimClient {
 					resultSelectList.add(new Acc_use_type().jsonToBean(selectit.next()));
 				}
 			}			
-			//Æ´×°select
+			//æ‹¼è£…select
 			StringBuffer sbSelects = new StringBuffer("");
 			sbSelects.append("$('#acc_use_type_select').html(\"");
 			sbSelects.append("<select id='acc_use_type_select' class='form-control'>");
 			if(resultList.size()>0){
 				for(Acc_use_type bean : resultSelectList){
-					sbSelects.append("<option selected value='"+bean.getAcc_use_type()+"'>");
+					sbSelects.append("<option value='"+bean.getAcc_use_type()+"'>");
 					sbSelects.append(bean.getAcc_use_name()+"</option>");
 				}
 			}
@@ -223,7 +223,7 @@ public class DimClient {
 		at.setTablecolum("(acc_my_card,acc_card_name,acc_card_desc,user_name,acc_sts) select max(acc_my_card)+1,?,?,?,? from acc_my_card");
 		at.setRequestObjbean(requestBean);
 		requestJson.setBody(JSONObject.fromObject(at).toString());
-		// ×Ô¶¯ÉèÖÃ±¨ÎÄÍ·
+		// è‡ªåŠ¨è®¾ç½®æŠ¥æ–‡å¤´
 		MessageHelper.autoSetRequestHeader(requestJson, requestBean.getUser_name());
 		service.insert(requestJson);
 	}
@@ -242,7 +242,7 @@ public class DimClient {
 			sb.append(" acc_card_name = ?,");
 		}
 		if(sb!=null && sb.length()>0){
-			// É¾µô×îºóÒ»¸ö¶ººÅ
+			// åˆ æ‰æœ€åä¸€ä¸ªé€—å·
 			sb.deleteCharAt(sb.length()-1);
 		}
 		if(CommonUtils.IsNotEmpty(requestBean.getAcc_my_card())){
@@ -251,7 +251,7 @@ public class DimClient {
 		at.setTablecolum(sb.toString());
 		at.setRequestObjbean(requestBean);
 		requestJson.setBody(JSONObject.fromObject(at).toString());
-		// ×Ô¶¯ÉèÖÃ±¨ÎÄÍ·
+		// è‡ªåŠ¨è®¾ç½®æŠ¥æ–‡å¤´
 		MessageHelper.autoSetRequestHeader(requestJson, requestBean.getUser_name());
 		service.update(requestJson);
 	}
@@ -265,7 +265,7 @@ public class DimClient {
 		at.setTablecolum(" acc_sts = ? where acc_my_card = ? ");
 		at.setRequestObjbean(requestBean);
 		requestJson.setBody(JSONObject.fromObject(at).toString());
-		// ×Ô¶¯ÉèÖÃ±¨ÎÄÍ·
+		// è‡ªåŠ¨è®¾ç½®æŠ¥æ–‡å¤´
 		MessageHelper.autoSetRequestHeader(requestJson, requestBean.getUser_name());
 		service.update(requestJson);
 	}
@@ -280,7 +280,7 @@ public class DimClient {
 		at.setTablecolum("(acc_use_type,acc_use_name,acc_use_desc,user_name,acc_sts) select max(acc_use_type)+1,?,?,?,? from acc_use_type");
 		at.setRequestObjbean(requestBean);
 		requestJson.setBody(JSONObject.fromObject(at).toString());
-		// ×Ô¶¯ÉèÖÃ±¨ÎÄÍ·
+		// è‡ªåŠ¨è®¾ç½®æŠ¥æ–‡å¤´
 		MessageHelper.autoSetRequestHeader(requestJson, requestBean.getUser_name());
 		service.insert(requestJson);
 	}
@@ -299,7 +299,7 @@ public class DimClient {
 			sb.append(" acc_use_name = ?,");
 		}
 		if(sb!=null && sb.length()>0){
-			// É¾µô×îºóÒ»¸ö¶ººÅ
+			// åˆ æ‰æœ€åä¸€ä¸ªé€—å·
 			sb.deleteCharAt(sb.length()-1);
 		}
 		if(CommonUtils.IsNotEmpty(requestBean.getAcc_use_type())){
@@ -308,7 +308,7 @@ public class DimClient {
 		at.setTablecolum(sb.toString());
 		at.setRequestObjbean(requestBean);
 		requestJson.setBody(JSONObject.fromObject(at).toString());
-		// ×Ô¶¯ÉèÖÃ±¨ÎÄÍ·
+		// è‡ªåŠ¨è®¾ç½®æŠ¥æ–‡å¤´
 		MessageHelper.autoSetRequestHeader(requestJson, requestBean.getUser_name());
 		service.update(requestJson);
 	}
@@ -322,7 +322,7 @@ public class DimClient {
 		at.setTablecolum(" acc_sts = ? where acc_use_type = ? ");
 		at.setRequestObjbean(requestBean);
 		requestJson.setBody(JSONObject.fromObject(at).toString());
-		// ×Ô¶¯ÉèÖÃ±¨ÎÄÍ·
+		// è‡ªåŠ¨è®¾ç½®æŠ¥æ–‡å¤´
 		MessageHelper.autoSetRequestHeader(requestJson, requestBean.getUser_name());
 		service.update(requestJson);
 	}

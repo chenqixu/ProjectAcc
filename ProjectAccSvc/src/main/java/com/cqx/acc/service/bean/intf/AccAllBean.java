@@ -7,8 +7,8 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)   
 @XmlType(name = "AccAllBean")
 public class AccAllBean {
-	protected String startnum = "0"; // Ä¬ÈÏ´Ó0¿ªÊ¼²éÑ¯
-	protected String pagenum = "-1"; // Ä¬ÈÏ-1²éÑ¯È«²¿
+	protected String startnum = "0"; // é»˜è®¤ä»Ž0å¼€å§‹æŸ¥è¯¢
+	protected String pagenum = "-1"; // é»˜è®¤-1æŸ¥è¯¢å…¨éƒ¨
 	public String getStartnum() {
 		return startnum;
 	}

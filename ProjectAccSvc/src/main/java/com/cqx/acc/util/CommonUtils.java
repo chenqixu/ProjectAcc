@@ -10,7 +10,7 @@ import org.apache.log4j.Logger;
 public class CommonUtils {
 	private static final Logger logger = Logger.getLogger(CommonUtils.class);
 	/**
-	 * Ê××ÖÄ¸´óĞ´
+	 * é¦–å­—æ¯å¤§å†™
 	 * */
 	public static String captureName(String name){
 		if(name!=null && name.length()>0){
@@ -23,7 +23,7 @@ public class CommonUtils {
 	}
 	
 	/**
-	 * »ñµÃ½ñÌìyyyy-MM-dd
+	 * è·å¾—ä»Šå¤©yyyy-MM-dd
 	 * */
 	public static String getNowDate(){
 		Date now = new Date();
@@ -32,7 +32,7 @@ public class CommonUtils {
 	}
 	
 	/**
-	 * »ñµÃÉÏ¸öÔÂµÄ½ñÌìyyyy-MM-dd
+	 * è·å¾—ä¸Šä¸ªæœˆçš„ä»Šå¤©yyyy-MM-dd
 	 * */
 	public static String getLastNowDate(){
 		Calendar cale = Calendar.getInstance();

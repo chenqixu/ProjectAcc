@@ -6,7 +6,7 @@ import com.cqx.acc.service.bean.login.LoginResponseObject;
 import com.cqx.acc.util.Constants;
 
 /**
- * 同步系统时间
+ * 鍚屾绯荤粺鏃堕棿
  * */
 public class SyncTimeClient{
 	private static LoginService ls = (LoginService)Constants.ctx.getBean("LoginService");

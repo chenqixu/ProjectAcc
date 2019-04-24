@@ -17,7 +17,7 @@ public class KEYUtils {
 	}
 	
 	/**
-	 * ���ַ���ת��MD5ֵ
+	 * 将字符串转成MD5值
 	 * 
 	 * @param string
 	 * @return
@@ -42,7 +42,7 @@ public class KEYUtils {
 	public static String getKEYByNameAndId(String name){
 		String result = "";
 		String sed = "";
-		// �Ƿ񱾵�ģʽ
+		// 是否本地模式
 		if(Constants.isLocal){
 			sed = sdf1.format(new Date());
 		}else{

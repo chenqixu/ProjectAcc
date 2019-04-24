@@ -7,19 +7,19 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)   
 @XmlType(name = "DealCountsDailyRequestBean")
 public class DealCountsDailyRequestBean {
-	private String seq_id = null;//Á÷Ë®
-	private String acc_use_time1 = null;//ÕÊÄ¿·¢ÉúÊ±¼ä
-	private String acc_use_time2 = null;//ÕÊÄ¿·¢ÉúÊ±¼ä
-	private String acc_type;//ÕÊÄ¿ÀàĞÍ(0:Æ½ºâ1:ÊÕÈë,2:Ö§³ö;3:Í¸Ö§)
-	private String acc_value1;//ÕÊÄ¿Öµ
-	private String acc_value2;//ÕÊÄ¿Öµ
-	private String acc_sts;//ÕÊÄ¿ÊÇ·ñÓĞĞ§(1:ÓĞĞ§,0:ÎŞĞ§)
-	private String acc_use_type;//·ÖÀà
-	private String acc_card;//ÎÒµÄ¿¨
-	private String acc_desc;//ÕÊÄ¿»ù±¾ËµÃ÷
-	private String user_name;//ÓÃ»§Ãû
-	private String startnum = "0"; // Ä¬ÈÏ´Ó0¿ªÊ¼²éÑ¯
-	private String pagenum = "-1"; // Ä¬ÈÏ-1²éÑ¯È«²¿
+	private String seq_id = null;//æµæ°´
+	private String acc_use_time1 = null;//å¸ç›®å‘ç”Ÿæ—¶é—´
+	private String acc_use_time2 = null;//å¸ç›®å‘ç”Ÿæ—¶é—´
+	private String acc_type;//å¸ç›®ç±»å‹(0:å¹³è¡¡1:æ”¶å…¥,2:æ”¯å‡º;3:é€æ”¯)
+	private String acc_value1;//å¸ç›®å€¼
+	private String acc_value2;//å¸ç›®å€¼
+	private String acc_sts;//å¸ç›®æ˜¯å¦æœ‰æ•ˆ(1:æœ‰æ•ˆ,0:æ— æ•ˆ)
+	private String acc_use_type;//åˆ†ç±»
+	private String acc_card;//æˆ‘çš„å¡
+	private String acc_desc;//å¸ç›®åŸºæœ¬è¯´æ˜
+	private String user_name;//ç”¨æˆ·å
+	private String startnum = "0"; // é»˜è®¤ä»0å¼€å§‹æŸ¥è¯¢
+	private String pagenum = "-1"; // é»˜è®¤-1æŸ¥è¯¢å…¨éƒ¨
 	public String getStartnum() {
 		return startnum;
 	}

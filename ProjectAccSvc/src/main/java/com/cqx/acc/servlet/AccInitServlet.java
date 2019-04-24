@@ -77,9 +77,9 @@ public class AccInitServlet extends HttpServlet {
 	 * @throws ServletException if an error occurs
 	 */
 	public void init() throws ServletException {
-		// ³õÊ¼»¯ÈÕÖ¾ºÍÅäÖÃ
+		// åˆå§‹åŒ–æ—¥å¿—å’Œé…ç½®
 		Constants.init();
-		// ³õÊ¼»¯ÓÃ»§»º´æÁĞ±í
+		// åˆå§‹åŒ–ç”¨æˆ·ç¼“å­˜åˆ—è¡¨
 		UserListCache.init();
 	}
 

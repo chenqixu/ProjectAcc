@@ -10,8 +10,8 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class Constants {
 //	public static Logger log = Logger.getLogger(Constants.class);	
 	
-	public static String spltstr = File.separator;//ÎÄ¼şÂ·¾¶·Ö¸ô·û(Çø·ÖwindowsºÍlinux)
-	public static final boolean isLocal = false;// ÊÇ·ñ±¾µØÄ£Ê½
+	public static String spltstr = File.separator;//æ–‡ä»¶è·¯å¾„åˆ†éš”ç¬¦(åŒºåˆ†windowså’Œlinux)
+	public static final boolean isLocal = false;// æ˜¯å¦æœ¬åœ°æ¨¡å¼
 
 	public static String configPath = getConfigPath();
 	
@@ -23,10 +23,10 @@ public class Constants {
 	
 	public static void init(){
 //		System.out.println("[Constants.class.getResource]:"+Constants.class.getResource(""));
-		//ÈÕÖ¾³õÊ¼»¯
+		//æ—¥å¿—åˆå§‹åŒ–
 //		PropertyConfigurator.configure(configPath+spltstr+"resources"
 //				+spltstr+"config"+spltstr+"log4j.properties");
-		//·şÎñ³õÊ¼»¯
+		//æœåŠ¡åˆå§‹åŒ–
 		ctx = new ClassPathXmlApplicationContext("ClientBeans.xml");
 	}
 }

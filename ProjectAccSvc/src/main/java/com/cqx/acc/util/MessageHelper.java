@@ -6,7 +6,7 @@ import com.cqx.acc.service.bean.intf.AccResponseIntf;
 
 public class MessageHelper {
 	/**
-	 * ÉèÖÃÄ¬ÈÏheaderºÍ¿ªÊ¼Ê±¼ä
+	 * è®¾ç½®é»˜è®¤headerå’Œå¼€å§‹æ—¶é—´
 	 * */
 	public static void autoSetRespHeader(AccResponseIntf ari){
 		AccResponseHeader responseHeader = new AccResponseHeader();
@@ -15,7 +15,7 @@ public class MessageHelper {
 	}
 	
 	/**
-	 * ¼ÆËã½áÊøÊ±¼ä
+	 * è®¡ç®—ç»“æŸæ—¶é—´
 	 * */
 	public static void autoSetDealTime(AccResponseIntf ari){
 		long strattime = Long.valueOf(ari.getHeader().getDealtime());
@@ -25,21 +25,21 @@ public class MessageHelper {
 	}
 	
 	/**
-	 * ÉèÖÃ¼øÈ¨Ê§°Ü½á¹û£¬¼°¼ÆËã½áÊøÊ±¼ä
+	 * è®¾ç½®é‰´æƒå¤±è´¥ç»“æœï¼ŒåŠè®¡ç®—ç»“æŸæ—¶é—´
 	 * */
 	public static void autoSetAuthResult(AccResponseIntf ari){
 		long strattime = Long.valueOf(ari.getHeader().getDealtime());
 		long dealtime = System.currentTimeMillis() - strattime;
 		ari.getHeader().setDealtime(String.valueOf(dealtime));
-		ari.getHeader().setDesc("¼øÈ¨Ê§°Ü£¬ÇëÖØÊÔ¡£");
+		ari.getHeader().setDesc("é‰´æƒå¤±è´¥ï¼Œè¯·é‡è¯•ã€‚");
 		ari.getHeader().setStatus(1);
 	}
 	
 	/**
-	 * ¼øÈ¨
+	 * é‰´æƒ
 	 * */
 	public static boolean authority(AccRequestHeader header){
-		if(!Constants.IS_PERMIT){ // ²»½øĞĞ¼øÈ¨
+		if(!Constants.IS_PERMIT){ // ä¸è¿›è¡Œé‰´æƒ
 			return true;
 		}else{
 			String name = header.getRequestname();

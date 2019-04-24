@@ -86,7 +86,7 @@ public class AccInitServlet extends HttpServlet {
 	 * @throws ServletException if an error occurs
 	 */
 	public void init() throws ServletException {
-		// 初始化日志和服务
+		// 鍒濆鍖栨棩蹇楀拰鏈嶅姟
 		Constants.init();
 	}
 

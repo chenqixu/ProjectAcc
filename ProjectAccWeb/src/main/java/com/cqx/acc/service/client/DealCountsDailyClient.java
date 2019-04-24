@@ -19,23 +19,23 @@ public class DealCountsDailyClient {
 		DealCountsDailyService dcds = (DealCountsDailyService)Constants.ctx.getBean("DealCountsDailyService");
 		DealCountsDailyRequestObject request = new DealCountsDailyRequestObject();
 		request.setBody(requestBean);
-		// ×Ô¶¯ÉèÖÃ±¨ÎÄÍ·
+		// è‡ªåŠ¨è®¾ç½®æŠ¥æ–‡å¤´
 		MessageHelper.autoSetRequestHeader(request, requestBean.getUser_name());
 		DealCountsDailyResponseObject responseObj = dcds.qryCountsDaily(request);
 		List<AccCountsDailyBean> resultList = (List<AccCountsDailyBean>)responseObj.getBody();
-		//Æ´×°Table
+		//æ‹¼è£…Table
 		StringBuffer sbTables = new StringBuffer("");
 		sbTables.append("$('#query_table').html(\"");
 		sbTables.append("<table class='table table-bordered table-hover table-condensed' id='query_table'>");
 		sbTables.append("<thead>");
 		sbTables.append("<tr>");
-		sbTables.append("<th>ÀàĞÍ</th>");
-		sbTables.append("<th>Öµ</th>");
-		sbTables.append("<th>ËµÃ÷</th>");
-		sbTables.append("<th>·ÖÀà</th>");
-		sbTables.append("<th>ÎÒµÄ¿¨</th>");
-		sbTables.append("<th>Ê±¼ä</th>");
-		sbTables.append("<th>²Ù×÷</th>");
+		sbTables.append("<th>ç±»å‹</th>");
+		sbTables.append("<th>å€¼</th>");
+		sbTables.append("<th>è¯´æ˜</th>");
+		sbTables.append("<th>åˆ†ç±»</th>");
+		sbTables.append("<th>æˆ‘çš„å¡</th>");
+		sbTables.append("<th>æ—¶é—´</th>");
+		sbTables.append("<th>æ“ä½œ</th>");
 		sbTables.append("</tr>");
 		sbTables.append("</thead>");
 		sbTables.append("<tbody>");
@@ -53,8 +53,8 @@ public class DealCountsDailyClient {
 				sbTables.append("<td style='display:none'>"+bean.getAcc_card()+"</td>");//8
 				sbTables.append("<td style='display:none'>"+bean.getSeq_id()+"</td>");//9		
 				sbTables.append("<td>");
-				sbTables.append("<a onclick='listmodify(this);' href='#modal-container-add' role='button' class='btn btn-small btn-primary' data-toggle='modal'>±à¼­</a>");
-				sbTables.append("&nbsp;<button onclick='listdel(this);' class='btn btn-small btn-primary' >É¾³ı</button>");
+				sbTables.append("<a onclick='listmodify(this);' href='#modal-container-add' role='button' class='btn btn-small btn-primary' data-toggle='modal'>ç¼–è¾‘</a>");
+				sbTables.append("&nbsp;<button onclick='listdel(this);' class='btn btn-small btn-primary' >åˆ é™¤</button>");
 				sbTables.append("</td>");
 				sbTables.append("</tr>");
 			}
@@ -62,7 +62,7 @@ public class DealCountsDailyClient {
 		sbTables.append("</tbody>");
 		sbTables.append("</table>");
 		sbTables.append("\");");	
-		//·ÖÒ³
+		//åˆ†é¡µ
 		StringBuffer sbPages = new StringBuffer(); 
 		sbPages.append("plist.init("+requestBean.getStartnum()+","+requestBean.getPagenum()
 				+","+responseObj.getHeader().getTotalcount()+",\"queryAccList\");");
@@ -71,11 +71,11 @@ public class DealCountsDailyClient {
 			response.setCharacterEncoding("GBK");
 			PrintWriter out = null;
 			out = response.getWriter();
-			// ÄÚÈİ
+			// å†…å®¹
 			out.print(sbTables.toString());
-			// ·ÖÒ³
+			// åˆ†é¡µ
 			out.print(sbPages.toString());
-			// È¡ÏûÕÚÕÖ²ã
+			// å–æ¶ˆé®ç½©å±‚
 			out.print("parent.loadModal(\"hide\");");
 			out.flush();
 			out.close();
@@ -88,7 +88,7 @@ public class DealCountsDailyClient {
 		DealCountsDailyService dcds = (DealCountsDailyService)Constants.ctx.getBean("DealCountsDailyService");
 		DealCountsDailyRequestObject request = new DealCountsDailyRequestObject();
 		request.setBody(requestBean);
-		// ×Ô¶¯ÉèÖÃ±¨ÎÄÍ·
+		// è‡ªåŠ¨è®¾ç½®æŠ¥æ–‡å¤´
 		MessageHelper.autoSetRequestHeader(request, requestBean.getUser_name());
 		dcds.insertCountsDaily(request);
 	}
@@ -97,7 +97,7 @@ public class DealCountsDailyClient {
 		DealCountsDailyService dcds = (DealCountsDailyService)Constants.ctx.getBean("DealCountsDailyService");
 		DealCountsDailyRequestObject request = new DealCountsDailyRequestObject();
 		request.setBody(requestBean);
-		// ×Ô¶¯ÉèÖÃ±¨ÎÄÍ·
+		// è‡ªåŠ¨è®¾ç½®æŠ¥æ–‡å¤´
 		MessageHelper.autoSetRequestHeader(request, requestBean.getUser_name());
 		dcds.updateCountsDaily(request);
 	}
@@ -106,7 +106,7 @@ public class DealCountsDailyClient {
 		DealCountsDailyService dcds = (DealCountsDailyService)Constants.ctx.getBean("DealCountsDailyService");
 		DealCountsDailyRequestObject request = new DealCountsDailyRequestObject();
 		request.setBody(requestBean);
-		// ×Ô¶¯ÉèÖÃ±¨ÎÄÍ·
+		// è‡ªåŠ¨è®¾ç½®æŠ¥æ–‡å¤´
 		MessageHelper.autoSetRequestHeader(request, requestBean.getUser_name());
 		dcds.delCountsDaily(request);
 	}
@@ -115,7 +115,7 @@ public class DealCountsDailyClient {
 		DealCountsDailyService dcds = (DealCountsDailyService)Constants.ctx.getBean("DealCountsDailyService");
 		DealCountsDailyRequestObject request = new DealCountsDailyRequestObject();
 		request.setBody(requestBean);
-		// ×Ô¶¯ÉèÖÃ±¨ÎÄÍ·
+		// è‡ªåŠ¨è®¾ç½®æŠ¥æ–‡å¤´
 		MessageHelper.autoSetRequestHeader(request, requestBean.getUser_name());
 		dcds.disableCountsDaily(request);
 	}

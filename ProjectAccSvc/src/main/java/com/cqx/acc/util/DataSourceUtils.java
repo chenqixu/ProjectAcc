@@ -34,10 +34,10 @@ public class DataSourceUtils {
 	}	
 
 	/**
-	 * ³õÊ¼»¯Êı¾İÔ´
+	 * åˆå§‹åŒ–æ•°æ®æº
 	 * */
 	public static void initConfigure() {
-		//ÅäÖÃ³õÊ¼»¯
+		//é…ç½®åˆå§‹åŒ–
 		dbDriver = Constants.getCommonPropertiesValueById("driver");
 		dbUserName = Constants.getCommonPropertiesValueById("username");
 		dbPassword = Constants.getCommonPropertiesValueById("password");
@@ -50,13 +50,13 @@ public class DataSourceUtils {
 		CommonUtils.info("##Initialize the configuration file DataSourceUtils.dbUserName:"+dbUserName);
 		CommonUtils.info("##Initialize the configuration file DataSourceUtils.dbPassword:"+dbPassword);
 		CommonUtils.info("##Initialize the configuration file DataSourceUtils.dbURL:"+dbURL);
-//		//»ñµÃÊı¾İÔ´
+//		//è·å¾—æ•°æ®æº
 //		dataSource = DataSourceUtils.setupDataSource(dbDriver,
 //		dbUserName, dbPassword, dbURL);
 	}
 	
 	/**
-	 * »ñµÃÊı¾İÔ´
+	 * è·å¾—æ•°æ®æº
 	 * */
 	public static DataSource getConfSource(){
 		if(dataSource==null){
@@ -66,7 +66,7 @@ public class DataSourceUtils {
 	}
 	
 	/**
-	 * »ñÈ¡Á¬½Ó
+	 * è·å–è¿æ¥
 	 * */
 	public static Connection getConnection(DataSource dataSource)
 			throws SQLException {
@@ -74,7 +74,7 @@ public class DataSourceUtils {
 	}
 	
 	/**
-	 * »ñÈ¡Á¬½Ó
+	 * è·å–è¿æ¥
 	 * */
 	public static Connection getConnection(){
 		try {
@@ -87,7 +87,7 @@ public class DataSourceUtils {
 	}
 
 	/**
-	 * ¹Ø±ÕÁ¬½Ó
+	 * å…³é—­è¿æ¥
 	 * */
 	public static void release(Connection connection, Statement statement,
 			ResultSet resultSet) {
@@ -115,7 +115,7 @@ public class DataSourceUtils {
 	}
 
 	/**
-	 * ´´½¨Á¬½Ó³Ø
+	 * åˆ›å»ºè¿æ¥æ± 
 	 * 
 	 * @param connectURI
 	 * @return
@@ -128,11 +128,11 @@ public class DataSourceUtils {
 		ds.setUsername(username);
 		ds.setPassword(password);
 		ds.setUrl(url);
-		// ×î´ó»î¶¯Á¬½Ó
+		// æœ€å¤§æ´»åŠ¨è¿æ¥
 		ds.setMaxActive(5);
-		// ×î´ó¿ÕÏĞÁ¬½Ó
+		// æœ€å¤§ç©ºé—²è¿æ¥
 		ds.setMinIdle(5);
-		// ×îĞ¡¿ÕÏĞÁ¬½Ó
+		// æœ€å°ç©ºé—²è¿æ¥
 		ds.setMaxIdle(2);
 		return ds;
 	}
@@ -149,7 +149,7 @@ public class DataSourceUtils {
 	}
 	
 	/**
-	 * ×Ö·û´®ÒÔÊı×Ö½áÎ²,·µ»ØÇ°ÃæµÄ×Ö·û´®
+	 * å­—ç¬¦ä¸²ä»¥æ•°å­—ç»“å°¾,è¿”å›å‰é¢çš„å­—ç¬¦ä¸²
 	 * */
 	private static String getStringCutNum(String str){
 		String result_str = str;
@@ -168,9 +168,9 @@ public class DataSourceUtils {
 	}
 	
 	/**
-	 * ´«ÈëÌõ¼şbean,°´Ë³Ğò·µ»ØPreparedStatement
-	 * sqlÓĞ¿ÉÄÜÓöÉÏ×Ö¶ÎºÍ±íÃûÒ»ÖÂµ¼ÖÂË³Ğò²»¶Ô£¬
-	 * ËùÒÔÒªÊÊÓ¦ÕâÖÖÇé¿ö£¬ÌŞ³ıinsert into .. (Ç°£¬ÌŞ³ıupdate .. setÇ°£¬ÌŞ³ıselect ... whereÇ°
+	 * ä¼ å…¥æ¡ä»¶bean,æŒ‰é¡ºåºè¿”å›PreparedStatement
+	 * sqlæœ‰å¯èƒ½é‡ä¸Šå­—æ®µå’Œè¡¨åä¸€è‡´å¯¼è‡´é¡ºåºä¸å¯¹ï¼Œ
+	 * æ‰€ä»¥è¦é€‚åº”è¿™ç§æƒ…å†µï¼Œå‰”é™¤insert into .. (å‰ï¼Œå‰”é™¤update .. setå‰ï¼Œå‰”é™¤select ... whereå‰
 	 * */
 	public static List<AccKeyValue> getNameValueByObj(Object obj, String _sql){
 		String sql = _sql;
@@ -186,25 +186,25 @@ public class DataSourceUtils {
 		List<AccKeyValue> result_list = new ArrayList<AccKeyValue>();
 		try{
 			Field fields[] = obj.getClass().getDeclaredFields();
-			//ÔÚÊ¹ÓÃjava·´Éä»úÖÆ»ñÈ¡ JavaBean µÄÊôĞÔÖµÊ±£¬Èç¹û¸ÃÊôĞÔ±»ÉùÃ÷Îªprivate µÄ
-			//ĞèÒª½«setAccessibleÉèÖÃÎªtrue. Ä¬ÈÏµÄÖµÎªfalse.
+			//åœ¨ä½¿ç”¨javaåå°„æœºåˆ¶è·å– JavaBean çš„å±æ€§å€¼æ—¶ï¼Œå¦‚æœè¯¥å±æ€§è¢«å£°æ˜ä¸ºprivate çš„
+			//éœ€è¦å°†setAccessibleè®¾ç½®ä¸ºtrue. é»˜è®¤çš„å€¼ä¸ºfalse.
 			Field.setAccessible(fields, true);
 			for(int i=0;i<fields.length;i++){
 				AccKeyValue tmpAccKV = new AccKeyValue();
 				tmpAccKV.setKey(fields[i].getName());
-				// ÅĞ¶ÏÊÇ·ñ¿ÕÖµ
+				// åˆ¤æ–­æ˜¯å¦ç©ºå€¼
 				if(fields[i].get(obj)==null){
 					continue;
 				}
-				// Èç¹ûÓĞÖµ£¬ÅĞ¶ÏÊÇ·ñÊÇStringÀàĞÍ£¬ÅĞ¶Ï³¤¶ÈÊÇ·ñÎª0
+				// å¦‚æœæœ‰å€¼ï¼Œåˆ¤æ–­æ˜¯å¦æ˜¯Stringç±»å‹ï¼Œåˆ¤æ–­é•¿åº¦æ˜¯å¦ä¸º0
 				if(fields[i].get(obj).getClass()==String.class && ((String)fields[i].get(obj)).length()==0){
 					continue;
 				}
 				tmpAccKV.setValue(fields[i].get(obj));
 				tmpAccKV.setValue_class(fields[i].get(obj).getClass());
-				//ÕÒ²»µ½¶ÔÓ¦×Ö·û´®,µ«ÊÇÈ¥³ıÄ©Î²Êı×Öºó¿ÉÒÔÕÒµ½¶ÔÓ¦×Ö·û´®µÄ
+				//æ‰¾ä¸åˆ°å¯¹åº”å­—ç¬¦ä¸²,ä½†æ˜¯å»é™¤æœ«å°¾æ•°å­—åå¯ä»¥æ‰¾åˆ°å¯¹åº”å­—ç¬¦ä¸²çš„
 				if(sql.indexOf(fields[i].getName())<0 && sql.indexOf(getStringCutNum(fields[i].getName()))>=0){
-					//È¥³ıÄ©Î²Êı×ÖºóµÄÎ»ÖÃ¼ÓÉÏÄ©Î²Êı×Ö
+					//å»é™¤æœ«å°¾æ•°å­—åçš„ä½ç½®åŠ ä¸Šæœ«å°¾æ•°å­—
 					tmpAccKV.setIndex(sql.indexOf(getStringCutNum(fields[i].getName()))
 							+Integer.valueOf(fields[i].getName().substring(fields[i].getName().length()-1,fields[i].getName().length())));
 				}else{
@@ -221,7 +221,7 @@ public class DataSourceUtils {
 	}
 	
 	/**
-	 * ´«Èë×Ö¶Î,·µ»ØMap<×Ö¶ÎÃû³Æ,×Ö¶ÎÀàĞÍ>
+	 * ä¼ å…¥å­—æ®µ,è¿”å›Map<å­—æ®µåç§°,å­—æ®µç±»å‹>
 	 * */
 	private static Map<String, Class<?>> getMapByFields(Field fields[]){
 		Map<String, Class<?>> result_map = new HashMap<String, Class<?>>();
@@ -232,7 +232,7 @@ public class DataSourceUtils {
 	}	
 	
 	/**
-	 * ²éÑ¯,Í¨¹ı²éÑ¯sqlÓï¾ä,²éÑ¯Ìõ¼şbean·µ»Ø½á¹ûbean
+	 * æŸ¥è¯¢,é€šè¿‡æŸ¥è¯¢sqlè¯­å¥,æŸ¥è¯¢æ¡ä»¶beanè¿”å›ç»“æœbean
 	 * */
 	public static AccResultSet query(String sql, Object obj, Class<?> c){
 		AccResultSet ars = new AccResultSet();
@@ -246,7 +246,7 @@ public class DataSourceUtils {
 //			conn = getConnection(getConfSource());
 			conn = getConnection();
 			if(conn!=null){
-				// ÏÈÅĞ¶ÏsqlÖĞÊÇ·ñÓĞlimit£¬Èç¹ûÓĞlimit¾ÍÏÈ²éÑ¯×Ü¼ÇÂ¼Êı
+				// å…ˆåˆ¤æ–­sqlä¸­æ˜¯å¦æœ‰limitï¼Œå¦‚æœæœ‰limitå°±å…ˆæŸ¥è¯¢æ€»è®°å½•æ•°
 				if(sql.indexOf("limit")>0){
 					String v_totalcount_sql = sql.substring(0, sql.indexOf("limit"));
 					v_totalcount_sql = "select count(1) "+v_totalcount_sql.substring(v_totalcount_sql.indexOf("from"), v_totalcount_sql.length());
@@ -269,7 +269,7 @@ public class DataSourceUtils {
 						break;
 					}
 				}
-				// ²éÑ¯½á¹û
+				// æŸ¥è¯¢ç»“æœ
 				pst = conn.prepareStatement(sql);
 				if(obj!=null){
 					List<AccKeyValue> param_list = getNameValueByObj(obj, sql);
@@ -321,7 +321,7 @@ public class DataSourceUtils {
 	}
 	
 	/**
-	 * insert£¬update£¬delete
+	 * insertï¼Œupdateï¼Œdelete
 	 * */
 	public static int update(String sql, Object obj){
 		int result_code = -1;

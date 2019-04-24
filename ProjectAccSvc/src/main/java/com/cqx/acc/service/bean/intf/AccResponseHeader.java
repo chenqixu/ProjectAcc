@@ -8,7 +8,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "AccResponseHeader")
 public class AccResponseHeader {
 	private String dealtime = "";
-	private int status = -1; // Ä¬ÈÏ-1£¬Õı³£0£¬¼øÈ¨Ê§°Ü1
+	private int status = -1; // é»˜è®¤-1ï¼Œæ­£å¸¸0ï¼Œé‰´æƒå¤±è´¥1
 	private String desc = "";
 	private int totalcount = 0;
 	public int getTotalcount() {

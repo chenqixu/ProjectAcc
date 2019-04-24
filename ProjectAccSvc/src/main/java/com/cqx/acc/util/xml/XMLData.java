@@ -8,9 +8,9 @@ import com.cqx.acc.util.CommonUtils;
 
 /**
  * @ClassName XMLData
- * @Description XMLÊı¾İ,ÒıÓÃBOSS¿ò¼Ü
- * @author ³ÂÆåĞñ
- * @version 1.0 2015-10-17 ´´½¨
+ * @Description XMLæ•°æ®,å¼•ç”¨BOSSæ¡†æ¶
+ * @author é™ˆæ£‹æ—­
+ * @version 1.0 2015-10-17 åˆ›å»º
  * */
 public class XMLData {
     private Document document;

@@ -24,11 +24,11 @@ public class JsonServiceImpl implements JsonService {
 	public JsonResponseObject qry(JsonRequestObject requestObj) {
 		AccTable at = new AccTable().jsonToBean((String)requestObj.getBody());
 		JsonResponseObject responseObj = new JsonResponseObject();
-		// ×Ô¶¯ÉèÖÃ±¨ÎÄÍ·
+		// è‡ªåŠ¨è®¾ç½®æŠ¥æ–‡å¤´
 		MessageHelper.autoSetRespHeader(responseObj);
-		// ¼øÈ¨
+		// é‰´æƒ
 		if(!MessageHelper.authority(requestObj.getHeader())){
-			// ×Ô¶¯ÉèÖÃ¼øÈ¨Ê§°Ü·µ»Ø½á¹û
+			// è‡ªåŠ¨è®¾ç½®é‰´æƒå¤±è´¥è¿”å›ç»“æœ
 			MessageHelper.autoSetAuthResult(responseObj);
 			return responseObj;
 		}
@@ -78,11 +78,11 @@ public class JsonServiceImpl implements JsonService {
 	public AccBooleanResponseObject insert(JsonRequestObject requestObj) {
 		AccTable at = new AccTable().jsonToBean((String)requestObj.getBody());
 		AccBooleanResponseObject responseObj = new AccBooleanResponseObject();
-		// ×Ô¶¯ÉèÖÃ±¨ÎÄÍ·
+		// è‡ªåŠ¨è®¾ç½®æŠ¥æ–‡å¤´
 		MessageHelper.autoSetRespHeader(responseObj);
-		// ¼øÈ¨
+		// é‰´æƒ
 		if(!MessageHelper.authority(requestObj.getHeader())){
-			// ×Ô¶¯ÉèÖÃ¼øÈ¨Ê§°Ü·µ»Ø½á¹û
+			// è‡ªåŠ¨è®¾ç½®é‰´æƒå¤±è´¥è¿”å›ç»“æœ
 			MessageHelper.autoSetAuthResult(responseObj);
 			return responseObj;
 		}
@@ -111,11 +111,11 @@ public class JsonServiceImpl implements JsonService {
 	public AccBooleanResponseObject update(JsonRequestObject requestObj) {
 		AccTable at = new AccTable().jsonToBean((String)requestObj.getBody());
 		AccBooleanResponseObject responseObj = new AccBooleanResponseObject();
-		// ×Ô¶¯ÉèÖÃ±¨ÎÄÍ·
+		// è‡ªåŠ¨è®¾ç½®æŠ¥æ–‡å¤´
 		MessageHelper.autoSetRespHeader(responseObj);
-		// ¼øÈ¨
+		// é‰´æƒ
 		if(!MessageHelper.authority(requestObj.getHeader())){
-			// ×Ô¶¯ÉèÖÃ¼øÈ¨Ê§°Ü·µ»Ø½á¹û
+			// è‡ªåŠ¨è®¾ç½®é‰´æƒå¤±è´¥è¿”å›ç»“æœ
 			MessageHelper.autoSetAuthResult(responseObj);
 			return responseObj;
 		}

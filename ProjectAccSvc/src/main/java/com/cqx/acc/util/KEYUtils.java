@@ -23,7 +23,7 @@ public class KEYUtils {
 	}
 	
 	/**
-	 * ½«×Ö·û´®×ª³ÉMD5Öµ
+	 * å°†å­—ç¬¦ä¸²è½¬æˆMD5å€¼
 	 * 
 	 * @param string
 	 * @return

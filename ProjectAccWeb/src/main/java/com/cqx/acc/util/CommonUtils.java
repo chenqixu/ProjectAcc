@@ -6,7 +6,7 @@ import java.util.Date;
 
 public class CommonUtils {	
 	/**
-	 * 获得今天yyyy-MM-dd
+	 * 鑾峰緱浠婂ぉyyyy-MM-dd
 	 * */
 	public static String getNowDate(){
 		Date now = new Date();
@@ -15,7 +15,7 @@ public class CommonUtils {
 	}
 	
 	/**
-	 * 获得上个月的今天yyyy-MM-dd
+	 * 鑾峰緱涓婁釜鏈堢殑浠婂ぉyyyy-MM-dd
 	 * */
 	public static String getLastNowDate(){
 		Calendar cale = Calendar.getInstance();
@@ -27,7 +27,7 @@ public class CommonUtils {
 	}
 	
 	/**
-	 * 判断字符串不为空
+	 * 鍒ゆ柇瀛楃涓蹭笉涓虹┖
 	 * */
 	public static boolean IsNotEmpty(String str){
 		boolean flag = false;

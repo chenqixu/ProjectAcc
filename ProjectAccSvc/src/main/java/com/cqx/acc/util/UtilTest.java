@@ -41,7 +41,7 @@ public class UtilTest {
 //		String sql = "select seq_id,acc_time,acc_type,acc_value,acc_sts,acc_desc,t1.acc_use_type,acc_use_time,"
 //				+"user_name "
 //				+",t2.acc_card_name,t3.acc_use_name "
-//				+",case when acc_type=0 then 'Æ½ºâ' when acc_type=1 then 'ÊÕÈë' when acc_type=2 then 'Ö§³ö' when acc_type=3 then 'Í¸Ö§' end as acc_type_desc "
+//				+",case when acc_type=0 then 'å¹³è¡¡' when acc_type=1 then 'æ”¶å…¥' when acc_type=2 then 'æ”¯å‡º' when acc_type=3 then 'é€æ”¯' end as acc_type_desc "
 //				+" from acc_counts_daily t1 "
 //				+" left join acc_my_card t2 on t1.acc_card=t2.acc_my_card "
 //				+" left join acc_use_type t3 on t1.acc_use_type=t3.acc_use_type "				
@@ -75,7 +75,7 @@ public class UtilTest {
 //		bean.setAcc_type("1");
 //		bean.setAcc_value1("2");
 //		bean.setAcc_sts("1");
-//		bean.setAcc_desc("Ê¥µ®²âÊÔ");
+//		bean.setAcc_desc("åœ£è¯æµ‹è¯•");
 //		bean.setAcc_use_type("1");
 //		bean.setAcc_use_time1("2015-12-03");
 //		bean.setUser_name("admin");
@@ -102,11 +102,11 @@ public class UtilTest {
 //		}
 //		System.out.println(page);
 		
-//		// ½ñÌì
+//		// ä»Šå¤©
 //		Date now = new Date();
 //		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 //		System.out.println(sdf.format(now));
-//		// Ò»¸öÔÂÇ°
+//		// ä¸€ä¸ªæœˆå‰
 //		Calendar cale = Calendar.getInstance();
 //		cale.setTime(now);
 //		cale.add(Calendar.MONTH, -1);
@@ -144,8 +144,8 @@ public class UtilTest {
 	public static void TestClass(Object obj) throws Exception{
 		System.out.println(obj.getClass().getName());
 		Field fields[] = obj.getClass().getDeclaredFields();
-		//ÔÚÊ¹ÓÃjava·´Éä»úÖÆ»ñÈ¡ JavaBean µÄÊôĞÔÖµÊ±£¬Èç¹û¸ÃÊôĞÔ±»ÉùÃ÷Îªprivate µÄ
-		//ĞèÒª½«setAccessibleÉèÖÃÎªtrue. Ä¬ÈÏµÄÖµÎªfalse.
+		//åœ¨ä½¿ç”¨javaåå°„æœºåˆ¶è·å– JavaBean çš„å±æ€§å€¼æ—¶ï¼Œå¦‚æœè¯¥å±æ€§è¢«å£°æ˜ä¸ºprivate çš„
+		//éœ€è¦å°†setAccessibleè®¾ç½®ä¸ºtrue. é»˜è®¤çš„å€¼ä¸ºfalse.
 		Field.setAccessible(fields, true);
 		for(int i=0;i<fields.length;i++){
 			if(fields[i].get(obj)!=null){
@@ -176,7 +176,7 @@ public class UtilTest {
 	}
 	
 	/**
-	 * µÇÂ½²âÊÔ
+	 * ç™»é™†æµ‹è¯•
 	 * */
 	public static void loginTest(String username, String password, String id) throws Exception {
 		String soap = "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:ser=\"http://service.acc.cqx.com/\"><soapenv:Header/><soapenv:Body><ser:LoginCheck><message><header>"
@@ -184,7 +184,7 @@ public class UtilTest {
     			+"<key>"+KEYUtils.getKEYByNameAndId(username, id)+"</key>"
     			+"<requesttime></requesttime><requestip></requestip></header><request>"
     			+"<username>"+username+"</username>"
-    			// ¶ÔÃÜÂë½øĞĞmd5¼ÓÃÜ
+    			// å¯¹å¯†ç è¿›è¡Œmd5åŠ å¯†
     			+"<password>"+KEYUtils.stringToMD5(password)+"</password>"
     			+"</request></message></ser:LoginCheck></soapenv:Body></soapenv:Envelope>";
 		byte[] data = soap.getBytes();
@@ -192,7 +192,7 @@ public class UtilTest {
     	CallWebService cws = new CallWebService();
     	String resultxml = cws.doAction(sUrl, data);
         if (resultxml.length()>0) {
-            // ½âÎö·µ»ØĞÅÏ¢
+            // è§£æè¿”å›ä¿¡æ¯
         	ResultXML rx = new ResultXML();
     		StringBuffer xml = new StringBuffer();
     		xml.append("<?xml version=\"1.0\"  encoding='UTF-8'?>");
@@ -202,12 +202,12 @@ public class UtilTest {
     		rx.bXmldata = true;
     		rx.xmldata = xd;
     		rx.setbFlag(false);
-    		// ÏÈ¿´×´Ì¬£¬ÔÙ¿´·µ»ØÖµ
+    		// å…ˆçœ‹çŠ¶æ€ï¼Œå†çœ‹è¿”å›å€¼
     		rx.resetParent().node("Body").node("LoginCheckResponse").node("message").node("header").setParentPointer();
     		rx.setRowFlagInfo("status");
     		rx.First();
-    		 if (rx.isEof()) { // Ã»ÓĞ½á¹û
-             	System.out.println("statusÃ»ÓĞ½á¹û");
+    		 if (rx.isEof()) { // æ²¡æœ‰ç»“æœ
+             	System.out.println("statusæ²¡æœ‰ç»“æœ");
     		 } else {
              	String status = rx.getRowValue();
              	System.out.println("[status]"+status);
@@ -215,9 +215,9 @@ public class UtilTest {
     		rx.resetParent().node("Body").node("LoginCheckResponse").node("message").setParentPointer();
     		rx.setRowFlagInfo("response");
     		rx.First();
-            if (rx.isEof()) { // Ã»ÓĞ½á¹û
-            	System.out.println("responseÃ»ÓĞ½á¹û");
-            } else { // ÓĞ½á¹û
+            if (rx.isEof()) { // æ²¡æœ‰ç»“æœ
+            	System.out.println("responseæ²¡æœ‰ç»“æœ");
+            } else { // æœ‰ç»“æœ
             	String logincode = rx.getRowValue();
             	System.out.println("[logincode]"+logincode);
             }

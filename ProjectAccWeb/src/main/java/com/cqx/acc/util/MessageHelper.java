@@ -6,7 +6,7 @@ import com.cqx.acc.service.bean.intf.AccRequestIntf;
 public class MessageHelper {
 
 	/**
-	 * 自动设置报文头部
+	 * 鑷姩璁剧疆鎶ユ枃澶撮儴
 	 * */
 	public static void autoSetRequestHeader(AccRequestIntf ari, String user_name){
 		AccRequestHeader header = new AccRequestHeader();

@@ -30,7 +30,7 @@ public class AccKeyValue implements Comparable<AccKeyValue> {
 		this.value = value;
 	}
 	/**
-	 * ÅÅĞòË³Ğò¹æÔòÊÇ0ÊÇÖØ¸´²»´æÈë¡¢1ÊÇÉıĞò¡¢-1ÊÇ½µĞò
+	 * æ’åºé¡ºåºè§„åˆ™æ˜¯0æ˜¯é‡å¤ä¸å­˜å…¥ã€1æ˜¯å‡åºã€-1æ˜¯é™åº
 	 * */
 	@Override
 	public int compareTo(AccKeyValue o) {

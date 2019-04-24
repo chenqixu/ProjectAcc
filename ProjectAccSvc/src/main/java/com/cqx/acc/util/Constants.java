@@ -17,10 +17,10 @@ public class Constants {
 	public static final boolean ISINFO = false;
 	public static final boolean ISDEBUG = false;
 	public static final boolean ISERR = true;
-	public static final boolean IS_PERMIT = false; // ÊÇ·ñ¼øÈ¨£¬¿ª·¢Ê±ºòÓÃfalse
+	public static final boolean IS_PERMIT = false; // æ˜¯å¦é‰´æƒï¼Œå¼€å‘æ—¶å€™ç”¨false
 	public static final String DECODE = "UTF-8";
 	
-	public static String spltstr = File.separator;//ÎÄ¼şÂ·¾¶·Ö¸ô·û(Çø·ÖwindowsºÍlinux)
+	public static String spltstr = File.separator;//æ–‡ä»¶è·¯å¾„åˆ†éš”ç¬¦(åŒºåˆ†windowså’Œlinux)
 
 	public static String configPath = getConfigPath();
 	
@@ -44,7 +44,7 @@ public class Constants {
 	}
 	
 	/**
-	 * Í¨¹ıid»ñµÃÅäÖÃÎÄ¼şcommon.propertiesµÄÖµ
+	 * é€šè¿‡idè·å¾—é…ç½®æ–‡ä»¶common.propertiesçš„å€¼
 	 * */
 	public static String getCommonPropertiesValueById(String id){
 		String value = "";
@@ -57,11 +57,11 @@ public class Constants {
 	}
 	
 	public static void init(){
-		//ÈÕÖ¾³õÊ¼»¯
+		//æ—¥å¿—åˆå§‹åŒ–
 		PropertyConfigurator.configure(configPath+spltstr+"resources"
 				+spltstr+"config"+spltstr+"log4j.properties");
 		try {
-			//ÅäÖÃ³õÊ¼»¯
+			//é…ç½®åˆå§‹åŒ–
 			props  = PropertiesLoaderUtils.loadProperties(dbResource);
 		} catch (IOException e) {
 			CommonUtils.error(e.toString());

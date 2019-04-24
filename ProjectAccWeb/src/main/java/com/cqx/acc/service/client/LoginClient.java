@@ -18,42 +18,42 @@ public class LoginClient extends AbstractClient{
 
 	@Override
 	protected AccResponseIntf callService(Object requestBean) {
-		// ´«ÈëµÄÇëÇóbean
+		// ä¼ å…¥çš„è¯·æ±‚bean
 		LoginRequestBean bean = (LoginRequestBean)requestBean;
-		// ´´½¨ÇëÇó¶ÔÏó
+		// åˆ›å»ºè¯·æ±‚å¯¹è±¡
 		LoginRequestObject request = new LoginRequestObject();
-		// ¶ÔÃÜÂë½øĞĞmd5¼ÓÃÜ
+		// å¯¹å¯†ç è¿›è¡Œmd5åŠ å¯†
 		bean.setPassword(KEYUtils.stringToMD5(bean.getPassword()));
 		request.setBody(bean);
-		// ×Ô¶¯ÉèÖÃ±¨ÎÄÍ·
+		// è‡ªåŠ¨è®¾ç½®æŠ¥æ–‡å¤´
 		MessageHelper.autoSetRequestHeader(request, bean.getUsername());
-		// ÇëÇó·şÎñ
+		// è¯·æ±‚æœåŠ¡
 		return ls.LoginCheck(request);
 	}
 
 	@Override
 	public int exec(Object requestBean) {
-		// ·µ»Ø±êÖ¾
-		int flag=-1; // -1´íÎó£»0Õı³££»1¼øÈ¨Ê§°Ü
+		// è¿”å›æ ‡å¿—
+		int flag=-1; // -1é”™è¯¯ï¼›0æ­£å¸¸ï¼›1é‰´æƒå¤±è´¥
 		LoginResponseObject response = (LoginResponseObject) callService(requestBean);
-		// ¼øÈ¨Ê§°Ü
+		// é‰´æƒå¤±è´¥
 		if(response.getHeader().getStatus()==1){
 			 flag=2;
 		}
-		// ÍøÂç¼°ÆäËûÔ­ÒòĞèÒªÖØÊÔ3´Î(ÇëÇó·şÎñ)
+		// ç½‘ç»œåŠå…¶ä»–åŸå› éœ€è¦é‡è¯•3æ¬¡(è¯·æ±‚æœåŠ¡)
 		else if(response.getHeader().getStatus()==-1){
 			if(exec_cnt<=2){
 				exec_cnt++;
 				exec(requestBean);
 			}
 		}
-		// ·şÎñÇëÇó³É¹¦
+		// æœåŠ¡è¯·æ±‚æˆåŠŸ
 		else{
-			// ²éÑ¯½á¹û0ÓÃ»§ÃÜÂë²»¶Ô£»²éÑ¯½á¹û1³É¹¦
+			// æŸ¥è¯¢ç»“æœ0ç”¨æˆ·å¯†ç ä¸å¯¹ï¼›æŸ¥è¯¢ç»“æœ1æˆåŠŸ
 			if(Integer.valueOf((String)response.getBody())==1)flag=1;
 			else flag=0;
 		}
-		// -1ÍøÂç»ò·şÎñÎÊÌâ;0ÓÃ»§ÃÜÂë²»¶Ô;1³É¹¦;2¼øÈ¨Ê§°Ü
+		// -1ç½‘ç»œæˆ–æœåŠ¡é—®é¢˜;0ç”¨æˆ·å¯†ç ä¸å¯¹;1æˆåŠŸ;2é‰´æƒå¤±è´¥
 		return flag;
 	}
 }

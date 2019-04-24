@@ -18,8 +18,8 @@ function Page(divid, objid){
 			this.pagenum = pagenum;
 			this.totalnum = totalnum;
 			this.clickevent = clickevent;
-			this.currpage = parseInt((this.start-1)/this.pagenum*1+1); // µ±Ç°Ò³Êı
-			this.setdivvalue(this.currsplitpage); // ÉèÖÃdiv
+			this.currpage = parseInt((this.start-1)/this.pagenum*1+1); // å½“å‰é¡µæ•°
+			this.setdivvalue(this.currsplitpage); // è®¾ç½®div
 		}
 	}
 
@@ -27,8 +27,8 @@ function Page(divid, objid){
 		Page.prototype.setdivvalue = function(num){
 			var v_xhcount = num*this.pagesplit;
 			num = (num-1)*this.pagesplit+1;
-			var v_totalpagecount = Math.ceil(this.totalnum/this.pagenum); // ×ÜÒ³Êı
-			this.pagesplittotal = Math.ceil(v_totalpagecount/this.pagesplit); // ¿ÉÒÔÇĞ¸î³É¼¸¸ö¹ö¶¯
+			var v_totalpagecount = Math.ceil(this.totalnum/this.pagenum); // æ€»é¡µæ•°
+			this.pagesplittotal = Math.ceil(v_totalpagecount/this.pagesplit); // å¯ä»¥åˆ‡å‰²æˆå‡ ä¸ªæ»šåŠ¨
 			if(v_xhcount>v_totalpagecount){
 				v_xhcount = v_totalpagecount;
 			}
@@ -61,7 +61,7 @@ function Page(divid, objid){
 		Page.prototype.previous = function(){
 			if(this.pagesplittotal>1 && this.currsplitpage>1){
 				this.currsplitpage = this.currsplitpage - 1;
-				this.setdivvalue(this.currsplitpage); // ÉèÖÃdiv
+				this.setdivvalue(this.currsplitpage); // è®¾ç½®div
 			}
 		}
 	}
@@ -70,7 +70,7 @@ function Page(divid, objid){
 		Page.prototype.next = function(){
 			if(this.pagesplittotal>this.currsplitpage){
 				this.currsplitpage = this.currsplitpage + 1;
-				this.setdivvalue(this.currsplitpage); // ÉèÖÃdiv
+				this.setdivvalue(this.currsplitpage); // è®¾ç½®div
 			}
 		}
 	}
