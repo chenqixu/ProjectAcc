@@ -25,7 +25,7 @@ public class Constants {
 	public static String configPath = getConfigPath();
 	
 	private static Resource dbResource = new ClassPathResource(spltstr+
-			"resources"+spltstr+"config"+spltstr+"db.properties");
+			"resources"+spltstr+"db.properties");
 	private static Properties props = null;
 		
 	public static String getConfigPath(){
