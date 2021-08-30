@@ -26,8 +26,8 @@
 		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 		<property name="locations">
 			<list>
-				<value>/WEB-INF/classes/resources/common.properties</value>
-				<value>/WEB-INF/classes/resources/db.properties</value>
+				<value>/WEB-INF/classes/resources/config/common.properties</value>
+				<value>/WEB-INF/classes/resources/config/db.properties</value>
 			</list>
 		</property>
 		<property name="fileEncoding" value="utf-8" />

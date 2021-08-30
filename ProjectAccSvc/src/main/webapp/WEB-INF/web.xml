@@ -3,28 +3,38 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee 
 	http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+	<!--log4j配置加载-->
+	<context-param>
+		<param-name>log4jConfigLocation</param-name>
+		<param-value>classpath:resources/config/log4j.properties</param-value>
+	</context-param>
+
+	<!--spring配置加载，如果不写，默认是WEB-INF/applicationContext.xml-->
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>/WEB-INF/applicationContext.xml</param-value>
 	</context-param>
+
 	<listener>
-		<listener-class>
-			org.springframework.web.context.ContextLoaderListener
-		</listener-class>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
+
 	<servlet>
 		<servlet-name>CXFServlet</servlet-name>
-		<servlet-class>
-			org.apache.cxf.transport.servlet.CXFServlet
-		</servlet-class>
+		<servlet-class>org.apache.cxf.transport.servlet.CXFServlet</servlet-class>
 		<load-on-startup>1</load-on-startup>
+		<init-param>
+			<!-- 隐藏服务列表 -->
+			<param-name>hide-service-list-page</param-name>
+			<param-value>true</param-value>
+		</init-param>
 	</servlet>
   <servlet>
-    <description>This is the description of my J2EE component</description>
-    <display-name>This is the display name of my J2EE component</display-name>
-    <servlet-name>AccInitServlet</servlet-name>
-    <servlet-class>com.cqx.acc.servlet.AccInitServlet</servlet-class>
-    <load-on-startup>1</load-on-startup>
+		<description>This is the description of my J2EE component</description>
+		<display-name>This is the display name of my J2EE component</display-name>
+		<servlet-name>AccInitServlet</servlet-name>
+		<servlet-class>com.cqx.acc.servlet.AccInitServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
   </servlet>
 
 	<servlet-mapping>
@@ -32,7 +42,7 @@
 		<url-pattern>/*</url-pattern>
 	</servlet-mapping>
   <servlet-mapping>
-    <servlet-name>AccInitServlet</servlet-name>
-    <url-pattern>/servlet/AccInitServlet</url-pattern>
+		<servlet-name>AccInitServlet</servlet-name>
+		<url-pattern>/servlet/AccInitServlet</url-pattern>
   </servlet-mapping>
 </web-app>
